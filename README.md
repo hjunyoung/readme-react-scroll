@@ -1,155 +1,165 @@
-- [English](#overview)
-- [한글](#overview-1)
+- [English](#react-scroll-event)
+- [한글](#react-scroll-event-1)
 
-# overview
+# React scroll event
 
-123123123123
-sdfsdfsd
-fsd
-fsd
+## Overview
 
-fsd
+When you surf the Internet, you can easily find some website that react to mouse scroll events. In this project, I practiced react by creating webpage that changes in response to user scroll.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+Following are features this webpage havs.
 
-fsd
+1. A Scroll-to-Top button.
+2. A quick menu button which follows the user.
+3. A navigation bar that knows which content is currently displaying.
+4. A scroll progress bar.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+## A Scroll-to-Top button
 
-fsd
+- I added an onClick event handler to the button component, and used a **window.scrollTo** function to scroll to the top of the page when clicking this button. In the scrollTo funtion, we can use a **behavior parameter** to specify whether the scrolling animate smoothly or not.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+```js
+// ScrollToTop.js
 
-fsd
+const Container = styled.button`
+  // Some styles here
+`;
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+const ScrollToTop = () => {
+  return (
+    <Container onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <FontAwesomeIcon icon={faArrowCircleUp} />
+    </Container>
+  );
+};
+```
 
-fsd
+- At first(when window.scrollY is 0), I hid the Scroll-to-Top button from the users. And using useState and useEffect, I made the button come into sight if user scrolls and window.scrollY value exceed 400px.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+```js
+// ScrollToTop.js
+const Container = styled.button`
+  // Some styles here
 
-fsd
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  ${(props) =>
+    props.visible
+      ? css`
+          opacity: 0.7;
+          transform: translateY(0);
+        `
+      : css`
+          opacity: 0;
+          transform: translateY(80px);
+        `}
+`;
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 400) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
 
-fsd
+    window.addEventListener('scroll', toggleVisibility);
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
 
-fsd
+  return (
+    <Container
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      visible={visible}
+    >
+      <FontAwesomeIcon icon={faArrowCircleUp} />
+    </Container>
+  );
+};
+```
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+---
 
-fsd
+# React scroll event
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+## Overview
 
-fsd
+한글한글한근ㅇㅎㄹㄴㅇㅎㄴㅇㅎㄴㅇ
+When you surf the Internet, you can easily find some website that react to mouse scroll events. In this project, I practiced react by creating webpage that changes in response to user scroll.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+Following are features this webpage havs.
 
-fsd
+1. A Scroll-to-Top button.
+2. A quick menu button which follows the user.
+3. A navigation bar that knows which content is currently displaying.
+4. A scroll progress bar.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+## A Scroll-to-Top button
 
-fsd
+- I added an onClick event handler to the button component, and used a **window.scrollTo** function to scroll to the top of the page when clicking this button. In the scrollTo funtion, we can use a **behavior parameter** to specify whether the scrolling animate smoothly or not.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+```js
+// ScrollToTop.js
 
-fsd
+const Container = styled.button`
+  // Some styles here
+`;
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+const ScrollToTop = () => {
+  return (
+    <Container onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <FontAwesomeIcon icon={faArrowCircleUp} />
+    </Container>
+  );
+};
+```
 
-fsd
+- At first(when window.scrollY is 0), I hid the Scroll-to-Top button from the users. And using useState and useEffect, I made the button come into sight if user scrolls and window.scrollY value exceed 400px.
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+```js
+// ScrollToTop.js
+const Container = styled.button`
+  // Some styles here
 
-fsd
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  ${(props) =>
+    props.visible
+      ? css`
+          opacity: 0.7;
+          transform: translateY(0);
+        `
+      : css`
+          opacity: 0;
+          transform: translateY(80px);
+        `}
+`;
 
-f
-123123123123
-sdfsdfsd
-fsd
-fsd
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 400) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
 
-fsd
+    window.addEventListener('scroll', toggleVisibility);
 
-f
-sdf
-sd
-fsd
-f
-sdf
-sd
-fsd
-f
-sd
-fs
-df
-sdf
-sd
-fs
-df
-sd
-fs
-df
-sd
-fdsfsdf
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
 
-# overview
+  return (
+    <Container
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      visible={visible}
+    >
+      <FontAwesomeIcon icon={faArrowCircleUp} />
+    </Container>
+  );
+};
+```
