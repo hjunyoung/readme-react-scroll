@@ -129,9 +129,9 @@ const QuickMenu = () => {
 <div align="center">
 <img src="./README_ASSETS/QuickMenuDescription.jpg" >
 
-<font color="white">White Box</font> is for the document |
-<font color="green">Green Box</font> is for the window |
-<font color="red">Red Box</font> is for the quick menu
+<span style="color: white">White Box</span> is for the document |
+<span style="color: green">Green Box</span> is for the window |
+<span style="color: red">Red Box</span> is for the quick menu
 
 </div>
 
