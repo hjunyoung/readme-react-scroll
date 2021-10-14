@@ -8,10 +8,10 @@ When you surf the Internet, you can easily find some website that react to mouse
 
 Following are features this webpage has.
 
-- [x] [A Scroll-to-Top button](#scroll-to-top-button)
-- [ ] [A quick menu button which follows the user](#quick-menu-button)
-- [ ] [A navigation bar that knows which content is currently displaying](#navigation-bar)
-- [ ] [a scroll progress bar](#scroll-progress-bar)
+1. [A Scroll-to-Top button](#scroll-to-top-button)
+2. [A quick menu button which follows the user](#quick-menu-button)
+3. [A navigation bar that knows which content is currently displaying](#navigation-bar)
+4. [A scroll progress bar](#scroll-progress-bar)
 
 ## ✨Scroll-to-Top Button
 
@@ -84,7 +84,56 @@ const ScrollToTop = () => {
 };
 ```
 
-## ✨Quick Menu Button
+## ✨Quick Menu
+
+<div align="center">
+<img src="./README_ASSETS/QuickMenu.gif" height="250px">
+</div>
+
+- When the page is loaded or reloaded, the quick menu is located at the bottom-right corner of the browser. If a user scrolls to some point (where a value of window.scrollY > window.innerHeight / 2), the quick menu is located at the middle-right of the brower.
+
+```js
+// QuickMenu.js
+
+const menuHeight = 360;
+const menuMargin = 48;
+
+...
+
+const QuickMenu = () => {
+  const initialOffset = window.innerHeight - (menuHeight + menuMargin);
+  const [topOffset, setTopOffset] = useState(initialOffset);
+
+  useEffect(() => {
+    const moveQuickMenu = () => {
+      const windowHeight = window.innerHeight;
+      const scroll = window.scrollY;
+      let offset = scroll + (windowHeight - menuHeight) / 2;
+
+      if (scroll < windowHeight / 2) {
+        offset = initialOffset;
+      }
+
+      setTopOffset(offset);
+    };
+
+    window.addEventListener('scroll', moveQuickMenu);
+
+    return () => window.removeEventListener('scroll', moveQuickMenu);
+  }, [initialOffset]);
+
+  ...
+};
+```
+
+<div align="center">
+<img src="./README_ASSETS/QuickMenuDescription.jpg" >
+
+<font color="white">White Box</font> is for the document |
+<font color="green">Green Box</font> is for the window |
+<font color="red">Red Box</font> is for the quick menu
+
+</div>
 
 ## ✨Navigation Bar
 
