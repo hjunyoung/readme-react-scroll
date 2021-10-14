@@ -15,6 +15,10 @@ Following are features this webpage has.
 
 ## ✨Scroll-to-Top Button
 
+<div align="center">
+<img src="./README_ASSETS/ScrollToTopButton.gif">
+</div>
+
 - I added an onClick event handler to the button component, and used a **window.scrollTo** function to scroll to the top of the page when clicking this button. In the scrollTo funtion, we can use a **behavior parameter** to specify whether the scrolling animate smoothly or not.
 
 ```js
