@@ -8,10 +8,10 @@ When you surf the Internet, you can easily find some website that react to mouse
 
 Following are features this webpage has.
 
-1. [A Scroll-to-Top button](#scroll-to-top-button)
-2. [A quick menu button which follows the user](#quick-menu-button)
-3. [A navigation bar that knows which content is currently displaying](#navigation-bar)
-4. [A scroll progress bar](#scroll-progress-bar)
+[x] [A Scroll-to-Top button](#scroll-to-top-button)
+[ ] [A quick menu button which follows the user](#quick-menu-button)
+[ ] [A navigation bar that knows which content is currently displaying](#navigation-bar)
+[ ][a scroll progress bar](#scroll-progress-bar)
 
 ## ✨Scroll-to-Top Button
 
